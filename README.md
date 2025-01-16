@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+Pexel Project
+A full-stack web application that provides features such as user authentication and grants management. Built using the MERN stack (MongoDB, Express, React, Node.js), this project is divided into two main parts:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Frontend: React-based user interface located in the client folder.
+Backend: Node.js/Express-based API located in the server folder.
+Features
+Frontend (Client)
+User Authentication: Login functionality with Context API.
+Dynamic Routing: Implemented using react-router-dom.
+Reusable Components: Modular structure for better scalability.
+API Integration: Fetches data from the backend using Axios.
+Responsive Design: Optimized for both desktop and mobile devices.
+Backend (Server)
+RESTful APIs: CRUD operations for users and grants.
+Authentication: JWT-based authentication.
+Error Handling: Custom middleware for centralized error management.
+Database Integration: MongoDB using Mongoose for schema definition.
+CORS Support: Enabled to allow frontend-backend communication.
+Project Structure
+graphql
+Copy code
+Pexel/
+├── client/              # React frontend
+│   ├── public/          # Static files
+│   ├── src/
+│   │   ├── assets/      # Images and other assets
+│   │   ├── components/  # Reusable components
+│   │   ├── pages/       # Application pages
+│   │   ├── context/     # Context API for state management
+│   │   ├── services/    # API handlers
+│   │   ├── utils/       # Helper functions
+│   │   ├── styles/      # Global styles
+│   │   ├── App.js       # Main React component
+│   │   ├── index.js     # React entry point
+│   │   └── config.js    # Frontend configuration
+├── server/              # Node.js backend
+│   ├── controllers/     # Controller logic for handling routes
+│   ├── middlewares/     # Middleware (e.g., authMiddleware.js)
+│   ├── models/          # MongoDB models (e.g., User.js)
+│   ├── routes/          # API routes
+│   ├── utils/           # Utility functions (e.g., token generation)
+│   ├── server.js        # Entry point for the backend
+├── .gitignore           # Files to be ignored by Git
+├── README.md            # Project documentation
+└── package.json         # Node.js dependencies and scripts
+Installation and Setup
+Prerequisites
+Node.js and npm
+MongoDB
+Backend Setup
+Navigate to the server directory:
 
-## Available Scripts
+bash
+Copy code
+cd server
+Install dependencies:
 
-In the project directory, you can run:
+bash
+Copy code
+npm install
+Create a .env file in the server directory and add the following environment variables:
 
-### `npm start`
+makefile
+Copy code
+PORT=5000
+MONGO_URI=<your-mongodb-connection-string>
+JWT_SECRET=<your-secret-key>
+Start the backend server:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+bash
+Copy code
+npm run dev
+Frontend Setup
+Navigate to the client directory:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+Copy code
+cd client
+Install dependencies:
 
-### `npm test`
+bash
+Copy code
+npm install
+Create a .env file in the client directory and add the following environment variables:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+arduino
+Copy code
+REACT_APP_API_URL=http://localhost:5000
+Start the development server:
 
-### `npm run build`
+bash
+Copy code
+npm start
+Usage
+Start the backend server:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+bash
+Copy code
+cd server
+npm run dev
+Start the frontend server:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+bash
+Copy code
+cd client
+npm start
+Open your browser and navigate to http://localhost:3000.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+APIs
+User API
+POST /api/users/login: User login.
+GET /api/users/profile: Get logged-in user profile (protected route).
+Grants API
+GET /api/grants: Fetch all grants.
+POST /api/grants: Create a new grant (protected route).
+Dependencies
+Frontend
+React
+React Router DOM
+Axios
+Context API
+Backend
+Express
+Mongoose
+JWT
+bcrypt
+CORS
